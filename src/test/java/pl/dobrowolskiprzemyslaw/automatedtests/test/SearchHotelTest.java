@@ -3,35 +3,39 @@ package pl.dobrowolskiprzemyslaw.automatedtests.test;
 import io.appium.java_client.MobileBy;
 import org.junit.Assert;
 import org.junit.Test;
-import pl.dobrowolskiprzemyslaw.automatedtests.utils.AppiumDriver;
+import org.testng.asserts.SoftAssert;
+import pl.dobrowolskiprzemyslaw.automatedtests.pages.*;
+
+import java.util.List;
 
 public class SearchHotelTest extends BaseTest {
-    AppiumDriver appDriver = new AppiumDriver();
     @Test
     public void searchHotel() {
-        appDriver.waitUntilVisibleAndClick(MobileBy.id("com.booking:id/bt_accept"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.id("com.booking:id/auth_bui_button"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.id("com.google.android.gms:id/account_name"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.AccessibilityId("Enter your destination"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.id("com.booking:id/facet_with_bui_free_search_booking_header_toolbar_content"));
-        appDriver.sendKeys(MobileBy.id("com.booking:id/facet_with_bui_free_search_booking_header_toolbar_content"), "London");
-        appDriver.waitUntilVisibleAndClick(MobileBy.xpath("//android.widget.TextView[text(),'London']"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.xpath("//android.view.View[@content-desc=\"30 March 2023\n" + "\"]"));
-        appDriver.scrollUpTo(MobileBy.AccessibilityId("29 May 2023"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.AccessibilityId("29 May 2023"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.id("com.booking:id/facet_date_picker_confirm"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.AccessibilityId("1 room, 2 adults, 0 children"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.xpath("//*[@resource-id='com.booking:id/bui_input_stepper_add_button']"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.xpath("(//*[@resource-id='com.booking:id/bui_input_stepper_remove_button'])[2]"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.xpath("(//*[@resource-id='com.booking:id/bui_input_stepper_add_button'])[3]"));
-        appDriver.waitUntilVisibleAndTryClick(MobileBy.id("com.booking:id/bui_input_container_icon"));
-        appDriver.scrollUpTo(MobileBy.xpath("//android.widget.NumberPicker//android.widget.Button[2]"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.xpath("//android.widget.NumberPicker//android.widget.Button[2]"));
-        appDriver.waitUntilVisibleAndClick(MobileBy.id("android:id/button1"));
-        Assert.assertTrue(appDriver.isDisplayed(MobileBy.xpath("//android.widget.TextView[text(),\"Children's ages will be used to find you the best match in beds, room, size, and special prices.\"]")));
-        appDriver.waitUntilVisibleAndTryClick(MobileBy.id("com.booking:id/group_config_apply_button"));
-        Assert.assertTrue(appDriver.isDisplayed(MobileBy.id("com.booking:id/facet_entry_point_item_label")));
-        appDriver.waitUntilVisibleAndClick(MobileBy.xpath("//android.widget.TextView[text(),'Search']/../android.widget.Button"));
-        Assert.assertEquals("Panther House by Oval",appDriver.getText(MobileBy.xpath("//android.widget.TextView[text(),'Panther House by Oval']")));
+        LoginPage lp = new LoginPage();
+        HomePage hp = new HomePage();
+        SearchPage sp = new SearchPage();
+        CalendarPage cp = new CalendarPage();
+        EndPage ep = new EndPage();
+        SelectRoomsAndGuestsPage sradp = new SelectRoomsAndGuestsPage();
+
+        lp.login();
+        hp.focusOnSearchInput();
+        sp.searchCity("London");
+        cp.inputTravelData("31 March 2023","01 May 2023");
+        hp.changeTraveler();
+        sradp.addRoom();
+        sradp.addAdult();
+        sradp.addAdult();
+        sradp.subtractAdult();
+        sradp.addChild();
+        sradp.confirmChanges();
+        Assert.assertTrue(driver.findElement(MobileBy.id("com.booking:id/facet_entry_point_item_label")).isDisplayed());
+        hp.search();
+        List<String> labelsList = ep.getTextLabels();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(labelsList.get(0),"Sort");
+        softAssert.assertEquals(labelsList.get(1),"Filter");
+        softAssert.assertEquals(labelsList.get(2),"Map");
+        softAssert.assertAll();
     }
 }
