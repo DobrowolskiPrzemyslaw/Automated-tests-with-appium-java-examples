@@ -1,6 +1,7 @@
 package pl.dobrowolskiprzemyslaw.automatedtests.pages;
 
 import io.appium.java_client.MobileBy;
+import io.qameta.allure.Step;
 import pl.dobrowolskiprzemyslaw.automatedtests.elements.Button;
 import pl.dobrowolskiprzemyslaw.automatedtests.elements.Link;
 
@@ -14,6 +15,7 @@ public class LoginPage {
         continueWithGoogle = new Button(MobileBy.id("com.booking:id/auth_bui_button"));
         mycount = new Link(MobileBy.id("com.google.android.gms:id/account_name"));
     }
+    @Step("Loging to profile")
     public void login (){
         accept.click();
         continueWithGoogle.click();

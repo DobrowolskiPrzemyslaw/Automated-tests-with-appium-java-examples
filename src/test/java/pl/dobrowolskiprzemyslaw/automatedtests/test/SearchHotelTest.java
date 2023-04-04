@@ -1,8 +1,11 @@
 package pl.dobrowolskiprzemyslaw.automatedtests.test;
 
 import io.appium.java_client.MobileBy;
-import org.junit.Assert;
-import org.junit.Test;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.*;
 
@@ -10,6 +13,9 @@ import java.util.List;
 
 public class SearchHotelTest extends BaseTest {
     @Test
+    @Feature("Feature")
+    @Story("Story")
+    @Description("Description")
     public void searchHotel() {
         LoginPage lp = new LoginPage();
         HomePage hp = new HomePage();
@@ -21,7 +27,7 @@ public class SearchHotelTest extends BaseTest {
         lp.login();
         hp.focusOnSearchInput();
         sp.searchCity("London");
-        cp.inputTravelData("31 March 2023","01 May 2023");
+        cp.inputTravelDate("31 March 2023","01 May 2023");
         hp.changeTraveler();
         sradp.addRoom();
         sradp.addAdult();

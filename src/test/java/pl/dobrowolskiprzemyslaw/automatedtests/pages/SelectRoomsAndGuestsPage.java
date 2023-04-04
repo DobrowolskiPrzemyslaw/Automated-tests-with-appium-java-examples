@@ -1,6 +1,7 @@
 package pl.dobrowolskiprzemyslaw.automatedtests.pages;
 
 import io.appium.java_client.MobileBy;
+import io.qameta.allure.Step;
 import pl.dobrowolskiprzemyslaw.automatedtests.elements.Button;
 import pl.dobrowolskiprzemyslaw.automatedtests.elements.ListBox;
 
@@ -31,18 +32,23 @@ public class SelectRoomsAndGuestsPage {
         applyButton = new Button(MobileBy.id("com.booking:id/group_config_apply_button"));
         ok = new Button(MobileBy.id("android:id/button1"));
     }
+    @Step("Adding room")
     public void addRoom(){
         plusRoom.click();
     }
+    @Step("Subtracting room")
     public void subtractRoom(){
         minusRoom.click();
     }
+    @Step("Adding adult")
     public void addAdult(){
         plusAdult.click();
     }
+    @Step("Subtracting adult")
     public void subtractAdult(){
         minusAdult.click();
     }
+    @Step("Adding child")
     public void addChild(){
         plusChild.click();
         if(selectAgeBox.isPresent()){
@@ -52,9 +58,11 @@ public class SelectRoomsAndGuestsPage {
         rangeOfYearsChild.click();
         ok.click();
     }
+    @Step("Subtracting child")
     public void subtractChild(){
         minusChild.click();
     }
+    @Step("Confirming changes")
     public void confirmChanges(){
         applyButton.click();
     }
