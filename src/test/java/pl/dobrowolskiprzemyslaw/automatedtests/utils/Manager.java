@@ -28,6 +28,9 @@ public class Manager {
         }
         return driver;
     }
+    public static void resetDriver(){
+        driver = null;
+    }
     public static TouchAction getTouchAction() {
         driver = Manager.getDriver();
         if(touchAction == null){

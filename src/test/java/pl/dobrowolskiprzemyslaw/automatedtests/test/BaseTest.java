@@ -17,6 +17,7 @@ public class BaseTest {
     }
     @AfterMethod
     public void tearDown() {
+        Manager.resetDriver();
 //        driver.quit();
     }
 }
