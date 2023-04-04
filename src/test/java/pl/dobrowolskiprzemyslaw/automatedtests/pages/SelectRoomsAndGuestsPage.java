@@ -2,11 +2,13 @@ package pl.dobrowolskiprzemyslaw.automatedtests.pages;
 
 import io.appium.java_client.MobileBy;
 import io.qameta.allure.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.dobrowolskiprzemyslaw.automatedtests.elements.Button;
 import pl.dobrowolskiprzemyslaw.automatedtests.elements.ListBox;
 
 public class SelectRoomsAndGuestsPage {
-
+    private static Logger logger = LoggerFactory.getLogger(SelectRoomsAndGuestsPage.class);
     Button minusRoom;
     Button plusRoom;
     Button minusAdult;
@@ -51,7 +53,9 @@ public class SelectRoomsAndGuestsPage {
     @Step("Adding child")
     public void addChild(){
         plusChild.click();
-        if(selectAgeBox.isPresent()){
+        boolean isPresentSelectAgeBox = selectAgeBox.isPresent();
+        logger.info("isPresentSelectAgeBox: "+ isPresentSelectAgeBox);
+        if(isPresentSelectAgeBox){
             selectAgeBox.click();
         }
         rangeOfYearsChild.scrollDown();

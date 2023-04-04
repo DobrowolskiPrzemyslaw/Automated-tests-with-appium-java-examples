@@ -27,7 +27,7 @@ public class SearchHotelTest extends BaseTest {
         lp.login();
         hp.focusOnSearchInput();
         sp.searchCity("London");
-        cp.inputTravelDate("31 March 2023","01 May 2023");
+        cp.inputTravelDate("25 April 2023","01 May 2023");
         hp.changeTraveler();
         sradp.addRoom();
         sradp.addAdult();

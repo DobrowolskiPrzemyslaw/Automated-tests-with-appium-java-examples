@@ -2,20 +2,21 @@ package pl.dobrowolskiprzemyslaw.automatedtests.test;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.HomePage;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.LoginPage;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.SavedPage;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 public class HomePageTests extends BaseTest {
     @Test
     @Feature("Saved Page")
     @Description("Showing good text labels on Saved Page")
-    public void savedPageTest() {
+    public void savedPageTest() throws MalformedURLException {
+
         LoginPage lp = new LoginPage();
         HomePage hp = new HomePage();
         SavedPage sp = new SavedPage();

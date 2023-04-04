@@ -16,6 +16,7 @@ public class Manager {
             if (driver == null) {
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "firstEmulator");
+//                desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "motorola moto g(60)");
                 desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
                 desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "android");
                 desiredCapabilities.setCapability("appPackage","com.booking");

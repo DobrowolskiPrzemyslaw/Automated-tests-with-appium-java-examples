@@ -3,9 +3,13 @@ package pl.dobrowolskiprzemyslaw.automatedtests.pages;
 import io.appium.java_client.MobileBy;
 import io.qameta.allure.Step;
 import org.openqa.selenium.TimeoutException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.dobrowolskiprzemyslaw.automatedtests.elements.Button;
-public class CalendarPage {
+import pl.dobrowolskiprzemyslaw.automatedtests.test.BaseTest;
 
+public class CalendarPage {
+    private static Logger logger = LoggerFactory.getLogger(BaseTest.class);
     Button startData;
     Button endData;
     Button item;
@@ -17,6 +21,7 @@ public class CalendarPage {
     }
     @Step("Setting a travel date from {0} to {1}")
     public void inputTravelDate(String start, String end){
+        logger.info("Setting a travel date from " +start+ " to "+end);
         setDate(start, end);
         startData.scrollDown();
         startData.click();
@@ -30,8 +35,10 @@ public class CalendarPage {
         try{
             startData = new Button(MobileBy.xpath("//android.view.View[@content-desc=\""+start+"\n" + "\"]"));
             endData = new Button((MobileBy.AccessibilityId(end)));
+            logger.info("Set correct date");
         }catch (TimeoutException e){
             System.out.println("Inputted incorrect date");
+            logger.info("Inputted incorrect date");
         }
     }
 }

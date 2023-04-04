@@ -5,6 +5,9 @@ import io.qameta.allure.Step;
 import pl.dobrowolskiprzemyslaw.automatedtests.elements.Button;
 import pl.dobrowolskiprzemyslaw.automatedtests.elements.InputText;
 import pl.dobrowolskiprzemyslaw.automatedtests.elements.Picture;
+import pl.dobrowolskiprzemyslaw.automatedtests.utils.AppiumHelper;
+
+import java.net.MalformedURLException;
 
 public class HomePage {
     InputText searchInput;
@@ -37,8 +40,9 @@ public class HomePage {
         searchButton.click();
     }
     @Step("Opening Saved Page")
-    public void openSaved(){
+    public void openSaved() throws MalformedURLException {
         savedPicture.click();
+        AppiumHelper.takeScreenshot();
     }
     @Step("Opening Booking Page")
     public void openBookings(){
