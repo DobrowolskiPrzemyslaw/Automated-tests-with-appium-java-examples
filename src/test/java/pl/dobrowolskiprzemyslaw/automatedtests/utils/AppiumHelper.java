@@ -1,11 +1,13 @@
 package pl.dobrowolskiprzemyslaw.automatedtests.utils;
 
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import pl.dobrowolskiprzemyslaw.automatedtests.elements.BaseElements;
+
+import java.time.Duration;
 
 public class AppiumHelper {
     @Attachment
@@ -14,16 +16,19 @@ public class AppiumHelper {
     }
     public static void scrollDown(BaseElements element){
         AndroidDriver driver = Manager.getDriver();
-        TouchAction touchAction = Manager.getTouchAction();
-        int height = driver.manage().window().getSize().getHeight();
-        int width = driver.manage().window().getSize().getWidth();
+        Sequence sequence = Manager.getSequence();
+        PointerInput finger = Manager.getFinger();
+        Dimension screenSize = driver.manage().window().getSize();
+        int height = screenSize.getHeight();
+        int width = screenSize.getWidth();
+        int centerX = width/2;
         boolean isDisplayed = false;
         int counter = 0;
         while(!isDisplayed) {
-            touchAction.longPress(PointOption.point(width/2, height / 2))
-                    .moveTo(PointOption.point(width/2, height / 2 - height / 8))
-                    .release()
-                    .perform();
+            sequence.addAction(finger.createPointerMove(Duration.ofSeconds(0),PointerInput.Origin.viewport(),centerX,height/2));
+            sequence.addAction(finger.createPointerDown(0));
+            sequence.addAction(finger.createPointerMove(Duration.ofSeconds(700),PointerInput.Origin.viewport(),centerX,height/4));
+            sequence.addAction(finger.createPointerUp(0));
             try {
                 isDisplayed= element.isDisplayedBase();
             } catch (NoSuchElementException e) {
@@ -36,16 +41,19 @@ public class AppiumHelper {
     }
     public static void scrollUp(BaseElements element){
         AndroidDriver driver = Manager.getDriver();
-        TouchAction touchAction = Manager.getTouchAction();
-        int height = driver.manage().window().getSize().getHeight();
-        int width = driver.manage().window().getSize().getWidth();
+        Sequence sequence = Manager.getSequence();
+        PointerInput finger = Manager.getFinger();
+        Dimension screenSize = driver.manage().window().getSize();
+        int height = screenSize.getHeight();
+        int width = screenSize.getWidth();
+        int centerX = width/2;
         boolean isDisplayed = false;
         int counter = 0;
         while(!isDisplayed) {
-            touchAction.longPress(PointOption.point(width/2, height / 2 - height / 8))
-                    .moveTo(PointOption.point(width/2, height / 2))
-                    .release()
-                    .perform();
+            sequence.addAction(finger.createPointerMove(Duration.ofSeconds(0),PointerInput.Origin.viewport(),centerX,height/4));
+            sequence.addAction(finger.createPointerDown(0));
+            sequence.addAction(finger.createPointerMove(Duration.ofSeconds(700),PointerInput.Origin.viewport(),centerX,height/2 ));
+            sequence.addAction(finger.createPointerUp(0));
             try {
                 isDisplayed = element.isDisplayedBase();
             } catch (NoSuchElementException e) {

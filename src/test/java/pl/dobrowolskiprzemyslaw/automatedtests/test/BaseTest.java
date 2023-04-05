@@ -1,24 +1,25 @@
 package pl.dobrowolskiprzemyslaw.automatedtests.test;
 
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.interactions.Sequence;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pl.dobrowolskiprzemyslaw.automatedtests.utils.Manager;
 
 public class BaseTest {
     AndroidDriver driver;
-    TouchAction touchAction;
+    Sequence sequence;
 
     @BeforeMethod
     public void setUp() {
         driver = Manager.getDriver();
-        touchAction = Manager.getTouchAction();
+        sequence = Manager.getSequence();
     }
     @AfterMethod
     public void tearDown() {
         Manager.resetDriver();
-        Manager.resetTouchAction();
+        Manager.resetSequence();
+        Manager.resetFingere();
         driver.quit();
     }
 }

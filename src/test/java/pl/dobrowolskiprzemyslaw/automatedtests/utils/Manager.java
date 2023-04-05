@@ -1,15 +1,17 @@
 package pl.dobrowolskiprzemyslaw.automatedtests.utils;
 
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Manager {
     private static AndroidDriver driver;
-    private static TouchAction touchAction;
+    private static Sequence sequence;
+    private static PointerInput finger;
     public static AndroidDriver getDriver() {
         try {
             if (driver == null) {
@@ -32,14 +34,25 @@ public class Manager {
     public static void resetDriver(){
         driver = null;
     }
-    public static void resetTouchAction(){
-        touchAction = null;
+    public static void resetSequence(){
+        sequence = null;
     }
-    public static TouchAction getTouchAction() {
+    public static void resetFingere(){
+        finger = null;
+    }
+    public static Sequence getSequence() {
         driver = Manager.getDriver();
-        if(touchAction == null){
-            touchAction =  new TouchAction(driver);
+        if(sequence == null){
+            finger = getFinger();
+            sequence =  new Sequence(finger,1);
         }
-        return touchAction;
+        return sequence;
+    }
+
+    public static PointerInput getFinger() {
+        if(finger == null){
+            finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        }
+        return finger;
     }
 }
