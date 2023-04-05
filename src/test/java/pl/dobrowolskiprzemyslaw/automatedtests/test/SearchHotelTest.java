@@ -6,12 +6,15 @@ import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.*;
 import pl.dobrowolskiprzemyslaw.automatedtests.utils.AppiumHelper;
+import pl.dobrowolskiprzemyslaw.automatedtests.utils.Listener;
 import java.util.List;
 
+@Listeners(value = {Listener.class})
 public class SearchHotelTest extends BaseTest {
     @Test(dataProvider = "data")
     @Feature("Feature")

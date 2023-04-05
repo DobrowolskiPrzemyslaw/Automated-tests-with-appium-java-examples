@@ -2,13 +2,16 @@ package pl.dobrowolskiprzemyslaw.automatedtests.test;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.HomePage;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.LoginPage;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.SavedPage;
+import pl.dobrowolskiprzemyslaw.automatedtests.utils.Listener;
 import java.util.List;
 
+@Listeners(value = {Listener.class})
 public class HomePageTests extends BaseTest {
     @Test
     @Feature("Saved Page")
