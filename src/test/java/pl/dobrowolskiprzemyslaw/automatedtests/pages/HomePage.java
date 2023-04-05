@@ -33,6 +33,7 @@ public class HomePage {
     }
     @Step("Changing travelers additional data")
     public void changeTraveler(){
+        changeTravelers.scrollUp();
         changeTravelers.click();
     }
     @Step("Clicking search button")

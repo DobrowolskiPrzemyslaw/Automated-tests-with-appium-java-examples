@@ -49,7 +49,7 @@ public class BaseElements {
         int counter = 0;
         while(!isDisplayed) {
             touchAction.longPress(PointOption.point(width/2, height / 2))
-                    .moveTo(PointOption.point(width/2, height / 2 - height / 4))
+                    .moveTo(PointOption.point(width/2, height / 2 - height / 8))
                     .release()
                     .perform();
             try {
@@ -68,7 +68,7 @@ public class BaseElements {
         boolean isDisplayed = false;
         int counter = 0;
         while(!isDisplayed) {
-            touchAction.longPress(PointOption.point(width/2, height / 2 - height / 4))
+            touchAction.longPress(PointOption.point(width/2, height / 2 - height / 8))
                     .moveTo(PointOption.point(width/2, height / 2))
                     .release()
                     .perform();

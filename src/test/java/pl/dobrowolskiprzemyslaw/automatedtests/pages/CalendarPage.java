@@ -33,7 +33,7 @@ public class CalendarPage {
 
     public void setDate(String start, String end){
         try{
-            startData = new Button(MobileBy.xpath("//android.view.View[@content-desc=\""+start+"\n" + "\"]"));
+            startData = new Button(MobileBy.xpath("//android.view.View[@content-desc=\""+start+"\"]"));
             endData = new Button((MobileBy.AccessibilityId(end)));
             logger.info("Set correct date");
         }catch (TimeoutException e){
