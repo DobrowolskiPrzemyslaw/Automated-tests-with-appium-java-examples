@@ -1,16 +1,15 @@
 package pl.dobrowolskiprzemyslaw.automatedtests.test;
 
-import io.appium.java_client.MobileBy;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.*;
 import pl.dobrowolskiprzemyslaw.automatedtests.utils.AppiumHelper;
-
 import java.util.List;
 
 public class SearchHotelTest extends BaseTest {
@@ -37,7 +36,7 @@ public class SearchHotelTest extends BaseTest {
         sradp.subtractAdult(1);
         sradp.addChild();
         sradp.confirmChanges();
-        Assert.assertTrue(driver.findElement(MobileBy.id("com.booking:id/facet_entry_point_item_label")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.id("com.booking:id/facet_entry_point_item_label")).isDisplayed());
         hp.search();
         List<String> labelsList = ep.getTextLabels();
         SoftAssert softAssert = new SoftAssert();

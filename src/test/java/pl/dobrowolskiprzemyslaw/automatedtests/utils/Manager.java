@@ -4,7 +4,6 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -21,8 +20,8 @@ public class Manager {
                 desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "android");
                 desiredCapabilities.setCapability("appPackage","com.booking");
                 desiredCapabilities.setCapability("appActivity","com.booking.startup.HomeActivity");
-//                URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub");
-                URL remoteUrl = new URL("http://127.0.0.1:4723");
+//                URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub"); //for emulator
+                URL remoteUrl = new URL("http://127.0.0.1:4723");   // for really
                 driver = new AndroidDriver(remoteUrl, desiredCapabilities);
             }
         }catch (MalformedURLException e){
@@ -32,6 +31,9 @@ public class Manager {
     }
     public static void resetDriver(){
         driver = null;
+    }
+    public static void resetTouchAction(){
+        touchAction = null;
     }
     public static TouchAction getTouchAction() {
         driver = Manager.getDriver();

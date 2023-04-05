@@ -7,10 +7,4 @@ public class ListBox extends BaseElements{
     public ListBox(By locator){
         super(locator);
     }
-    public void click(){
-        clickOnElementBase();
-    }
-    public void selectByVisibleText(String text){
-        selectByVisibleTextBase(text);
-    }
 }

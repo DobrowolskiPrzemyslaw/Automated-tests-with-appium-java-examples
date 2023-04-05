@@ -13,10 +13,4 @@ public class Button extends BaseElements{
     public boolean isPresent(){
         return isPresentBase();
     }
-    public void scrollDown(){
-        scrollDownBase();
-    }
-    public void scrollUp(){
-        scrollUpBase();
-    }
 }

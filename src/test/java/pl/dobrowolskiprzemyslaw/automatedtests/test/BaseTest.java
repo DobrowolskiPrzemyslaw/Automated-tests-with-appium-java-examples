@@ -2,8 +2,6 @@ package pl.dobrowolskiprzemyslaw.automatedtests.test;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pl.dobrowolskiprzemyslaw.automatedtests.utils.Manager;
@@ -20,6 +18,7 @@ public class BaseTest {
     @AfterMethod
     public void tearDown() {
         Manager.resetDriver();
-//        driver.quit();
+        Manager.resetTouchAction();
+        driver.quit();
     }
 }

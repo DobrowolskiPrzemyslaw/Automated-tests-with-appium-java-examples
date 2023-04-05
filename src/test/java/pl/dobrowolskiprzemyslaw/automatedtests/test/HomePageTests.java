@@ -7,15 +7,13 @@ import org.testng.asserts.SoftAssert;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.HomePage;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.LoginPage;
 import pl.dobrowolskiprzemyslaw.automatedtests.pages.SavedPage;
-
-import java.net.MalformedURLException;
 import java.util.List;
 
 public class HomePageTests extends BaseTest {
     @Test
     @Feature("Saved Page")
     @Description("Showing good text labels on Saved Page")
-    public void savedPageTest() throws MalformedURLException {
+    public void savedPageTest() {
 
         LoginPage lp = new LoginPage();
         HomePage hp = new HomePage();
