@@ -1,7 +1,6 @@
 package pl.dobrowolskiprzemyslaw.automatedtests.elements;
 
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -14,11 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pl.dobrowolskiprzemyslaw.automatedtests.utils.AppiumHelper;
 import pl.dobrowolskiprzemyslaw.automatedtests.utils.CostomConditions;
 import pl.dobrowolskiprzemyslaw.automatedtests.utils.Manager;
+
 import java.time.Duration;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
 import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
 
@@ -26,7 +23,7 @@ public class BaseElements {
     AndroidDriver driver = Manager.getDriver();
     TouchAction touchAction = Manager.getTouchAction();
     AppiumHelper appiumHelper = new AppiumHelper();
-    WebDriverWait wait = new WebDriverWait(driver, 15);
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     By locator;
 
     protected BaseElements(By locator) {
@@ -91,10 +88,6 @@ public class BaseElements {
     protected void selectByVisibleTextBase (String visibleText){
         getSelectBase().selectByVisibleText(visibleText);
     }
-    protected void tapBase(String visibleText)  {
-        appiumHelper.scrollTo(visibleText);
-        tapBase(visibleText);
-    }
     protected void backBase()  {
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
     }
@@ -126,7 +119,7 @@ public class BaseElements {
         driver.findElement(locator).click();
     }
     protected void waitUntilVisibleAndTryClickBase() {
-        wait = new WebDriverWait(driver, 5L);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         try{
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             driver.findElement(locator).click();
@@ -137,14 +130,6 @@ public class BaseElements {
     protected void waitUntilMoreThanOneContextBase(int expectedSizeContext) {
         wait.until(CostomConditions.contextSizeIs(expectedSizeContext));
     }
-    protected void dragAndDropBase(MobileElement starElement, MobileElement endElement) {
-        TouchAction touchAction = Manager.getTouchAction();
-        touchAction.longPress(longPressOptions().withElement(element(starElement)).withDuration(Duration.ofSeconds(2)))
-                .moveTo(PointOption.point(endElement.getCenter()))
-                .release()
-                .perform();
-    }
-
     protected void sendKeysBase(String text) {
         driver.findElement(locator).click();
         driver.findElement(locator).sendKeys(text);
@@ -173,7 +158,7 @@ public class BaseElements {
         return driver.findElement(locator).isDisplayed();
     }
     protected boolean isPresentBase() {
-        wait = new WebDriverWait(driver, 5L);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         boolean present;
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -199,10 +184,10 @@ public class BaseElements {
         WebElement webElement = driver.findElement(MobileBy.xpath("//*[@text='"+visibleText+"']"));
         touchAction.tap(tapOptions().withElement(element(webElement))).perform();
     }
-    protected void longPressBase(String visibleText) {
-        WebElement webelement = driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\""+visibleText+"\"))");
-        touchAction.longPress(longPressOptions().withElement(element(webelement))).perform();
-    }
+//    protected void longPressBase(String visibleText) {
+//        WebElement webelement = driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\""+visibleText+"\"))");
+//        touchAction.longPress(longPressOptions().withElement(element(webelement))).perform();
+//    }
     protected void clickByText(String visibleText) {
         driver.findElement(MobileBy.xpath("//*[@text='"+visibleText+"']")).click();
     }
