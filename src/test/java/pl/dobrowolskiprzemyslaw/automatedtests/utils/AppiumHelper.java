@@ -9,8 +9,8 @@ import pl.dobrowolskiprzemyslaw.automatedtests.elements.BaseElements;
 
 public class AppiumHelper {
     @Attachment
-    public static void takeScreenshot() {
-        ((TakesScreenshot)Manager.getDriver()).getScreenshotAs(OutputType.BYTES);
+    public static byte[] takeScreenshot() {
+       return ((TakesScreenshot)Manager.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
     public static void scrollDown(BaseElements element){
         AndroidDriver driver = Manager.getDriver();
