@@ -35,7 +35,7 @@ public class CalendarPage {
     public void setDate(String start, String end){
         try{
             startData = new Button(By.xpath("//android.view.View[@content-desc=\""+start+"\"]"));
-            endData = new Button((By.id(end)));
+            endData = new Button(By.xpath("//android.view.View[@content-desc=\""+end+"\"]"));
             logger.info("Set correct date");
         }catch (TimeoutException e){
             System.out.println("Inputted incorrect date");
