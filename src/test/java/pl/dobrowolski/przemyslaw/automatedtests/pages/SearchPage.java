@@ -1,11 +1,11 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.pages;
+package pl.dobrowolski.przemyslaw.automatedtests.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.Button;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.InputText;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.Button;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.InputText;
 
 public class SearchPage {
     private static final Logger logger = LoggerFactory.getLogger(SearchPage.class);

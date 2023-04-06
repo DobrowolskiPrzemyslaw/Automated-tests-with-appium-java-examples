@@ -1,9 +1,9 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.pages;
+package pl.dobrowolski.przemyslaw.automatedtests.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.Button;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.Link;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.Button;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.Link;
 
 public class LoginPage {
     Button accept;

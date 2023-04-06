@@ -1,11 +1,11 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.utils;
+package pl.dobrowolski.przemyslaw.automatedtests.utils;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.BaseElements;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.BaseElements;
 
 import java.time.Duration;
 

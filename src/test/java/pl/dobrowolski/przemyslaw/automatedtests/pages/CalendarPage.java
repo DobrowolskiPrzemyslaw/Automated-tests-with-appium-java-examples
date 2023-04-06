@@ -1,13 +1,13 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.pages;
+package pl.dobrowolski.przemyslaw.automatedtests.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.Button;
-import pl.dobrowolskiprzemyslaw.automatedtests.test.BaseTest;
-import pl.dobrowolskiprzemyslaw.automatedtests.utils.AppiumHelper;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.Button;
+import pl.dobrowolski.przemyslaw.automatedtests.test.BaseTest;
+import pl.dobrowolski.przemyslaw.automatedtests.utils.AppiumHelper;
 
 public class CalendarPage {
     private static final Logger logger = LoggerFactory.getLogger(BaseTest.class);

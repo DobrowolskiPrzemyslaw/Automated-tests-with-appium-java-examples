@@ -1,11 +1,11 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.pages;
+package pl.dobrowolski.przemyslaw.automatedtests.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.Button;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.InputText;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.Picture;
-import pl.dobrowolskiprzemyslaw.automatedtests.utils.AppiumHelper;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.InputText;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.Button;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.Picture;
+import pl.dobrowolski.przemyslaw.automatedtests.utils.AppiumHelper;
 
 public class HomePage {
     InputText searchInput;

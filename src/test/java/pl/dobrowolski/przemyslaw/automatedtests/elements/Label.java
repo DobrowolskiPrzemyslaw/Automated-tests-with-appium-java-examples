@@ -1,4 +1,4 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.elements;
+package pl.dobrowolski.przemyslaw.automatedtests.elements;
 
 import org.openqa.selenium.By;
 import java.util.List;

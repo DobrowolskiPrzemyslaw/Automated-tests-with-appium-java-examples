@@ -1,12 +1,12 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.pages;
+package pl.dobrowolski.przemyslaw.automatedtests.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.Button;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.ListBox;
-import pl.dobrowolskiprzemyslaw.automatedtests.utils.AppiumHelper;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.Button;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.ListBox;
+import pl.dobrowolski.przemyslaw.automatedtests.utils.AppiumHelper;
 
 public class SelectRoomsAndGuestsPage {
     private static final Logger logger = LoggerFactory.getLogger(SelectRoomsAndGuestsPage.class);

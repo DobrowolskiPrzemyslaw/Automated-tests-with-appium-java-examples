@@ -1,10 +1,11 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.elements;
+package pl.dobrowolski.przemyslaw.automatedtests.elements;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pl.dobrowolskiprzemyslaw.automatedtests.utils.Manager;
+import pl.dobrowolski.przemyslaw.automatedtests.utils.Manager;
+
 import java.time.Duration;
 import java.util.List;
 

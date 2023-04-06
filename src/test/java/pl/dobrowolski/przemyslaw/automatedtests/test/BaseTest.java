@@ -1,14 +1,14 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.test;
+package pl.dobrowolski.przemyslaw.automatedtests.test;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.interactions.Sequence;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pl.dobrowolskiprzemyslaw.automatedtests.utils.Manager;
+import pl.dobrowolski.przemyslaw.automatedtests.utils.Manager;
 
 public class BaseTest {
-    AndroidDriver driver;
-    Sequence sequence;
+    protected AndroidDriver driver;
+    protected Sequence sequence;
 
     @BeforeMethod
     public void setUp() {

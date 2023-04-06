@@ -1,4 +1,4 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.test;
+package pl.dobrowolski.przemyslaw.automatedtests.test;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -9,9 +9,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pl.dobrowolskiprzemyslaw.automatedtests.pages.*;
-import pl.dobrowolskiprzemyslaw.automatedtests.utils.AppiumHelper;
-import pl.dobrowolskiprzemyslaw.automatedtests.utils.Listener;
+import pl.dobrowolski.przemyslaw.automatedtests.pages.*;
+import pl.dobrowolski.przemyslaw.automatedtests.utils.AppiumHelper;
+import pl.dobrowolski.przemyslaw.automatedtests.utils.Listener;
+
 import java.util.List;
 
 @Listeners(value = {Listener.class})

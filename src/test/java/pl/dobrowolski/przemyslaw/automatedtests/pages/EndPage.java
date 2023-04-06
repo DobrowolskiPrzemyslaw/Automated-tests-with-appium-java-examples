@@ -1,8 +1,8 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.pages;
+package pl.dobrowolski.przemyslaw.automatedtests.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import pl.dobrowolskiprzemyslaw.automatedtests.elements.Label;
+import pl.dobrowolski.przemyslaw.automatedtests.elements.Label;
 
 import java.util.List;
 

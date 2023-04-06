@@ -1,4 +1,4 @@
-package pl.dobrowolskiprzemyslaw.automatedtests.utils;
+package pl.dobrowolski.przemyslaw.automatedtests.utils;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -15,16 +15,18 @@ public class Manager {
     public static AndroidDriver getDriver() {
         try {
             if (driver == null) {
-                DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-//                desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "firstEmulator");
-                desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "motorola moto g(60)");
-                desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
-                desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "android");
-                desiredCapabilities.setCapability("appPackage","com.booking");
-                desiredCapabilities.setCapability("appActivity","com.booking.startup.HomeActivity");
+                DesiredCapabilities caps = new DesiredCapabilities();
+//                caps.setCapability(MobileCapabilityType.DEVICE_NAME, "firstEmulator");
+//                caps.setCapability(MobileCapabilityType.UDID, "emulator-5554");
+//                caps.setCapability(MobileCapabilityType.APP, "emulator-5554");
+                caps.setCapability(MobileCapabilityType.DEVICE_NAME, "motorola moto g(60)");
+                caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Uiautomator2");
+                caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+                caps.setCapability("appPackage","com.booking");
+                caps.setCapability("appActivity","com.booking.startup.HomeActivity");
 //                URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub"); //for emulator
                 URL remoteUrl = new URL("http://127.0.0.1:4723");   // for really
-                driver = new AndroidDriver(remoteUrl, desiredCapabilities);
+                driver = new AndroidDriver(remoteUrl, caps);
             }
         }catch (MalformedURLException e){
             e.getStackTrace();
