@@ -10,6 +10,7 @@ import org.testng.ITestResult;
 public class Listener implements ITestListener {
 
     private static final Logger logger = LoggerFactory.getLogger(Listener.class);
+
     @Override
     @Description("onTestStart")
     public void onTestStart(final ITestResult result) {

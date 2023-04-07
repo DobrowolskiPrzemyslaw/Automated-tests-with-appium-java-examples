@@ -12,11 +12,11 @@ import org.testng.asserts.SoftAssert;
 import pl.dobrowolski.przemyslaw.automatedtests.pages.*;
 import pl.dobrowolski.przemyslaw.automatedtests.utils.AppiumHelper;
 import pl.dobrowolski.przemyslaw.automatedtests.utils.Listener;
-
 import java.util.List;
 
 @Listeners(value = {Listener.class})
 public class SearchHotelTest extends BaseTest {
+
     @Test(dataProvider = "data")
     @Feature("Feature")
     @Story("Story")

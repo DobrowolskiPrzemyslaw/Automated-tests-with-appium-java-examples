@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import pl.dobrowolski.przemyslaw.automatedtests.utils.Manager;
 
 public class BaseTest {
+
     protected AndroidDriver driver;
     protected Sequence sequence;
 
@@ -15,6 +16,7 @@ public class BaseTest {
         driver = Manager.getDriver();
         sequence = Manager.getSequence();
     }
+
     @AfterMethod
     public void tearDown() {
         Manager.resetDriver();

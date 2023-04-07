@@ -1,15 +1,18 @@
 package pl.dobrowolski.przemyslaw.automatedtests.pages;
 
+import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import pl.dobrowolski.przemyslaw.automatedtests.elements.Label;
 import java.util.List;
 
 public class SavedPage {
-    Label topLabels;
+
+    private final Label topLabels;
+
     public SavedPage(){
-        topLabels = new Label(By.xpath("//android.widget.TextView"));
+        topLabels = new Label(AppiumBy.xpath("//android.widget.TextView"));
     }
+
     @Step("Getting text from labels")
     public List<String> getTextLabels(){
         return topLabels.getTexts();

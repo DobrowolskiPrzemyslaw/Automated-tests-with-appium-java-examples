@@ -9,23 +9,21 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Manager {
+
     private static AndroidDriver driver;
     private static Sequence sequence;
     private static PointerInput finger;
+
     public static AndroidDriver getDriver() {
         try {
             if (driver == null) {
                 DesiredCapabilities caps = new DesiredCapabilities();
-//                caps.setCapability(MobileCapabilityType.DEVICE_NAME, "firstEmulator");
-//                caps.setCapability(MobileCapabilityType.UDID, "emulator-5554");
-//                caps.setCapability(MobileCapabilityType.APP, "emulator-5554");
                 caps.setCapability(MobileCapabilityType.DEVICE_NAME, "motorola moto g(60)");
                 caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Uiautomator2");
                 caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
                 caps.setCapability("appPackage","com.booking");
                 caps.setCapability("appActivity","com.booking.startup.HomeActivity");
-//                URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub"); //for emulator
-                URL remoteUrl = new URL("http://127.0.0.1:4723");   // for really
+                URL remoteUrl = new URL("http://127.0.0.1:4723");
                 driver = new AndroidDriver(remoteUrl, caps);
             }
         }catch (MalformedURLException e){
@@ -33,15 +31,19 @@ public class Manager {
         }
         return driver;
     }
+
     public static void resetDriver(){
         driver = null;
     }
+
     public static void resetSequence(){
         sequence = null;
     }
+
     public static void resetFingere(){
         finger = null;
     }
+
     public static Sequence getSequence() {
         driver = Manager.getDriver();
         if(sequence == null){

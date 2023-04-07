@@ -6,14 +6,15 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import pl.dobrowolski.przemyslaw.automatedtests.elements.BaseElements;
-
 import java.time.Duration;
 
 public class AppiumHelper {
+
     @Attachment
     public static byte[] takeScreenshot() {
        return ((TakesScreenshot)Manager.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
+
     public static void scrollDown(BaseElements element){
         AndroidDriver driver = Manager.getDriver();
         Sequence sequence = Manager.getSequence();
@@ -39,6 +40,7 @@ public class AppiumHelper {
             }
         }
     }
+
     public static void scrollUp(BaseElements element){
         AndroidDriver driver = Manager.getDriver();
         Sequence sequence = Manager.getSequence();

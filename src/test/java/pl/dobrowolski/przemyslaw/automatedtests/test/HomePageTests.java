@@ -14,19 +14,18 @@ import java.util.List;
 
 @Listeners(value = {Listener.class})
 public class HomePageTests extends BaseTest {
+
     @Test
     @Feature("Saved Page")
     @Description("Showing good text labels on Saved Page")
     public void savedPageTest() {
-
         LoginPage lp = new LoginPage();
         HomePage hp = new HomePage();
         SavedPage sp = new SavedPage();
-
+        SoftAssert softAssert = new SoftAssert();
         lp.login();
         hp.openSaved();
         List<String> labelsList = sp.getTextLabels();
-        SoftAssert softAssert = new SoftAssert();
         if(labelsList.size()>9){
             softAssert.assertEquals(labelsList.get(0),"Saved");
             softAssert.assertEquals(labelsList.get(1),"Lists");
