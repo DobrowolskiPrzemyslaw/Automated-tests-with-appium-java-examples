@@ -23,6 +23,7 @@ public class HomePageTests extends BaseTest {
         HomePage hp = new HomePage();
         SavedPage sp = new SavedPage();
         SoftAssert softAssert = new SoftAssert();
+
         lp.login();
         hp.openSaved();
         List<String> labelsList = sp.getTextLabels();
